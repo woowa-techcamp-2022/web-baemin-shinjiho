@@ -21,6 +21,24 @@ const init = () => {
     }
   };
 
+  const changeInputId = () => {
+    const idValue = $inputId.value;
+
+    if (idValue) {
+      $spanErrorId.innerText = '';
+    }
+  };
+
+  const changeInputPassword = () => {
+    const passwordValue = $inputPassword.value;
+
+    if (passwordValue) {
+      $spanErrorPassword.innerText = '';
+    }
+  };
+
+  $inputId.addEventListener('input', changeInputId);
+  $inputPassword.addEventListener('input', changeInputPassword);
   $signinForm.addEventListener('submit', submitLogin);
 };
 
