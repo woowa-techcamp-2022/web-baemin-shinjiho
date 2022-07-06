@@ -12,4 +12,12 @@ router.get('/', (req, res) => {
   res.render('pages/main/main', { title: 'My배민', userData });
 });
 
+router.get('/signin', (req, res) => {
+  res.render('pages/auth/signin');
+});
+
+router.get('/signup/term', (req, res) => {
+  res.render('pages/auth/signup-service-term', { title: '회원가입' });
+});
+
 module.exports = router;

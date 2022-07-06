@@ -1,0 +1,25 @@
+extends ../../layout/layout.pug
+
+include ../../components/common/checkbox
+
+block head 
+    link(rel="stylesheet", href="/styles/signup-service-term.css")
+
+block back-page
+    a(href="/signin")
+        img(src="/assets/icons/close.png", alt="뒤로가기")
+
+block content
+    .service-term-wrapper
+        p.service-term-title= "어서오세요\n약관동의가 필요해요"
+        .service-term-checkbox-wrapper
+            +checkbox("전체동의", false, "check-all-agree-label", "check-all-agree-input", "check-all-agree-input")
+        .service-term-checkbox-wrapper
+            +checkbox("배달의민족 이용약관 동의", true, "", "check-agree-input", "check-agree-input-1")
+            +checkbox("전자금융거래 이용약관 동의", true, "", "check-agree-input", "check-agree-input-2")
+            +checkbox("개인정보 수집이용 동의", true, "", "check-agree-input", "check-agree-input-3")
+            +checkbox("개인정보 제3자 제공 동의(선택)", true, "", "check-agree-input", "check-agree-input-4")
+            +checkbox("마케팅 정보 메일, SMS 수신동의(선택)", false,  "", "check-agree-input", "check-agree-input-5")
+
+block script 
+    script(src="/js/signup-service-term.js") 
