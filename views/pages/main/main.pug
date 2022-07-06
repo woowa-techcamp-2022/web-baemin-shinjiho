@@ -5,51 +5,15 @@ block head
     
 block content
     img.main-banner(src="/assets/images/banner.png", alt="배민 가이드",)
-    a.main-login(href="/login")
+    a.main-login(href="/signin")
         .main-login-left
             img.main-login-avatar(src="/assets/icons/default-avatar.png")
             p.main-login-txt 로그인해주세요
         img.chevron-right(src="/assets/icons/chevron-right.png")
-    .main-menu
-        .main-menu-item
-            img.main-menu-item-image(src="/assets/icons/coin.png")
-            p.main-menu-item-txt 포인트
-        .main-menu-item
-            img.main-menu-item-image(src="/assets/icons/coupon.png")
-            p.main-menu-item-txt 쿠폰함
-        .main-menu-item
-            img.main-menu-item-image(src="/assets/icons/gift.png")
-            p.main-menu-item-txt 선물함
-        .main-menu-item
-            img.main-menu-item-image(src="/assets/icons/heart.png")
-            p.main-menu-item-txt 찜
-        .main-menu-item
-            img.main-menu-item-image(src="/assets/icons/receipt.png")
-            p.main-menu-item-txt 주문내역
-        .main-menu-item
-            img.main-menu-item-image(src="/assets/icons/review.png")
-            p.main-menu-item-txt 리뷰관리
+    include ../../components/main/grid-menu
     .main-disposable
         .main-disposable-left
             img.main-disposable-image(src="/assets/icons/sprout.png")
             p.main-disposable-txt 일회용품 덜 쓰기, 함께해요!
         img.chevron-right(src="/assets/icons/chevron-right.png")
-    .main-bottom-menu
-        .main-bottom-menu-item
-            .main-bottom-menu-item-left
-                p.main-bottom-menu-item-title 배민페이 등록
-                p.main-bottom-menu-item-desc 배민페이로 결제하면 최대 5.5% 배민포인트가 적립됩니다!
-            img.chevron-right(src="/assets/icons/chevron-right.png")
-        .main-bottom-menu-item
-            .main-bottom-menu-item-left
-                p.main-bottom-menu-item-title 가족계정 관리
-                p.main-bottom-menu-item-desc 결제수단을 공유해 우리가족의 끼니를 챙겨주세요.
-            img.chevron-right(src="/assets/icons/chevron-right.png")
-        .main-bottom-menu-item
-            .main-bottom-menu-item-left
-                p.main-bottom-menu-item-title 공지사항
-            img.chevron-right(src="/assets/icons/chevron-right.png")
-        .main-bottom-menu-item
-            .main-bottom-menu-item-left
-                p.main-bottom-menu-item-title 배민커넥트 지원
-            img.chevron-right(src="/assets/icons/chevron-right.png")
+    include ../../components/main/bottom-menu
