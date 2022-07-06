@@ -5,6 +5,7 @@
   --color-gray100: #ececec;
   --color-gray200: #f6f6f6;
   --color-gray300: #bbbbbb;
+  --color-gray400: #818181;
   --color-black: #000000;
   --color-white: #ffffff;
   --color-green: #479a28;
@@ -15,12 +16,13 @@
   max-width: 360px;
   height: 100vh;
 
-  background-color: var(--color-gray200);
   border: 1px solid var(--color-black);
 }
 
 .header {
   height: 50px;
+
+  padding: 0 18px;
 
   display: flex;
   justify-content: space-between;
@@ -36,4 +38,21 @@
 .chevron-right {
   width: 20px;
   height: 20px;
+}
+
+input::placeholder {
+  color: var(--color-gray300);
+}
+
+.input-underline {
+  border-bottom: 1px solid var(--color-gray300);
+}
+
+.button {
+  padding: 14px 0;
+
+  border: none;
+  border-radius: 4px;
+
+  font-weight: 500;
 }
