@@ -1,7 +1,7 @@
-mixin checkbox(text, hasDetail, labelClassName, inputClassName)
+mixin checkbox(text, hasDetail, labelClassName, inputClassName, inputId)
     .checkbox-wrapper
-        input(type="checkbox" class= inputClassName)
-        label(for="check-all-agree" class= labelClassName)
+        input(type="checkbox" id= inputId class= inputClassName)
+        label(for= inputId class= labelClassName)
             .checkbox-left
                 i
                 | #{text}
