@@ -6,5 +6,10 @@ head
 body
     div.app
         header.header
-            block header
+            .back-page
+                block back-page
+            .title
+                p.header-title #{title}
+            .next-page
+                block next-page
         block content

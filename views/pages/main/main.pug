@@ -2,12 +2,10 @@ extends ../../layout/layout.pug
 
 block head
     link(rel="stylesheet", href="/styles/main.css")
-
-block header
     
 block content
     img.main-banner(src="/assets/images/banner.png", alt="배민 가이드",)
-    .main-login
+    a.main-login(href="/login")
         .main-login-left
             img.main-login-avatar(src="/assets/icons/default-avatar.png")
             p.main-login-txt 로그인해주세요
