@@ -1,0 +1,7 @@
+mixin bottom-menu-item(title, desc)
+    .main-bottom-menu-item
+        .main-bottom-menu-item-left
+            p.main-bottom-menu-item-title= title
+            if desc
+                p.main-bottom-menu-item-desc= desc
+        img.chevron-right(src= "/assets/icons/chevron-right.png")
