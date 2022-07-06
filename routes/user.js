@@ -2,6 +2,10 @@ const express = require('express');
 const db = require('../lib/db');
 const router = express.Router();
 
+router.get('/signin', (req, res) => {
+  res.render('pages/auth/signin');
+});
+
 router.post('/signin', (req, res) => {
   const { email, password } = req.body;
 
