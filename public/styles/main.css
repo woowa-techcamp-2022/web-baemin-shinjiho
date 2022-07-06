@@ -1,3 +1,7 @@
+.app {
+  background-color: var(--color-gray200);
+}
+
 .main-banner {
   width: 100%;
 }

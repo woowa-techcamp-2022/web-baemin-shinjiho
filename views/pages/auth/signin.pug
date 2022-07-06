@@ -1,0 +1,35 @@
+extends ../../layout/layout.pug
+
+include ../../components/common/button
+
+block head 
+    link(rel="stylesheet", href="/styles/signin.css")
+
+block back-page
+    a(href="/")
+        img(src="/assets/icons/close.png", alt="뒤로가기")
+    
+
+block content
+    .signin-wrapper
+        form#signin-form.signin-form(action="/user/signin", method="POST")
+            input#signin-input-id.input-underline(type="text", name="email", placeholder="아이디 또는 이메일")
+            span#signin-id-error.error-message
+            input#signin-input-password.input-underline(type="password", name="password", placeholder="비밀번호")
+            span#signin-password-error.error-message
+            span.signin-server-error.error-message #{error}
+            +button("로그인", "#2ac1bc", "#ffffff")
+            .signin-helper
+                span 아이디 찾기
+                span |
+                span 비밀번호 찾기
+
+        .signin-oauth-wrapper
+            button.button.signin-ouath-button 페이스북으로 로그인
+            button.button.signin-ouath-button 네이버로 로그인
+            button.button.signin-ouath-button Apple로 로그인
+            span.signin-first-txt 혹시, 배달의 민족이 처음이신가요? 
+                a(href="/user/signup/term") 회원가입
+
+block script 
+    script(src="/js/signin.js") 
