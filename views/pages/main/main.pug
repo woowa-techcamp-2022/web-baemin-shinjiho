@@ -8,7 +8,10 @@ block content
     a.main-login(href="/user/signin")
         .main-login-left
             img.main-login-avatar(src="/assets/icons/default-avatar.png")
-            p.main-login-txt 로그인해주세요
+            if userData
+                p.main-login-txt #{userData.nickname}
+            else
+                p.main-login-txt 로그인해주세요
         img.chevron-right(src="/assets/icons/chevron-right.png")
     include ../../components/main/grid-menu
     .main-disposable
