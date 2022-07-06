@@ -1,13 +1,10 @@
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const low = require('lowdb');
-const FileSync = require('lowdb/adapters/FileSync');
-const mainRouter = require('./routes');
 
-// DB
-const adapter = new FileSync('db.json');
-const db = low(adapter);
+const mainRouter = require('./routes');
+const userRouter = require('./routes/user');
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -19,7 +16,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use(
+  session({
+    secret: 'BAEMINAUTHvansdjvbajkelwr234',
+    httpOnly: true,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      httpOnly: true,
+      secure: false,
+    },
+  }),
+);
+
 app.use('/', mainRouter);
+app.use('/user', userRouter);
 
 app.use((req, res, next) => {
   res.status(404).render('404');
