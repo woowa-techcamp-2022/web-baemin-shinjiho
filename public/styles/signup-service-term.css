@@ -1,0 +1,19 @@
+.service-term-wrapper {
+  margin-top: 40px;
+  padding: 0 18px;
+}
+
+.service-term-title {
+  margin-bottom: 40px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+
+  white-space: pre-line;
+}
+
+.service-term-checkbox-wrapper {
+  margin-bottom: 20px;
+
+  border-bottom: 1px solid var(--color-gray300);
+}
