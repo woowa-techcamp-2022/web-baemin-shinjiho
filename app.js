@@ -4,6 +4,10 @@ const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const mainRoute = require('./routes');
 
+// DB
+const adapter = new FileSync('db.json');
+const db = low(adapter);
+
 const app = express();
 const port = process.env.PORT || 8080;
 app.set('view engine', 'pug');
