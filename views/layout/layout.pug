@@ -1,0 +1,15 @@
+html
+head
+    title 배달의 민족 - #{title}
+    link(rel='stylesheet', href='/styles/styles.css')
+    block head
+body
+    div.app
+        header.header
+            .back-page
+                block back-page
+            .title
+                p.header-title #{title}
+            .next-page
+                block next-page
+        block content
