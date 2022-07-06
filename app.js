@@ -1,22 +1,20 @@
 const express = require('express');
 const path = require('path');
-
-
+const low = require('lowdb');
+const FileSync = require('lowdb/adapters/FileSync');
+const mainRoute = require('./routes');
 
 const app = express();
 const port = process.env.PORT || 8080;
 app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, 'frontend/src/pages'));
+app.set('views', path.join(__dirname, 'views/pages/'));
 
-app.use(express.static(path.join(__dirname, 'frontend/src')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get('/', function (req, res) {
-    res.render('main/main', { title: 'Hey', message: 'Hello there!'});
-  });
-
+app.use('/', mainRoute);
 
 app.listen(port, () => {
   console.log(`Server Connected:  http://localhost:${port}`);
