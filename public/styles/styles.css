@@ -9,6 +9,7 @@
   --color-black: #000000;
   --color-white: #ffffff;
   --color-green: #479a28;
+  --color-red: #fc5a46;
 }
 
 .app {
@@ -49,10 +50,18 @@ input::placeholder {
 }
 
 .button {
+  cursor: pointer;
+
   padding: 14px 0;
 
   border: none;
   border-radius: 4px;
 
   font-weight: 500;
+}
+
+.error-message {
+  font-size: 12px;
+
+  color: var(--color-red);
 }

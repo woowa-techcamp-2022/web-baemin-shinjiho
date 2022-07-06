@@ -19,11 +19,9 @@ router.post('/signin', (req, res) => {
         res.redirect(302, '/');
       });
     }
-
-    res.render('/signin', { error: '비밀번호가 일치하지 않습니다.' });
   }
 
-  res.render('/signin', { error: '존재하지 않는 이메일입니다.' });
+  res.render('pages/auth/signin', { error: '이메일 또는 비밀번호를 다시 확인해주세요.' });
 });
 
 module.exports = router;
