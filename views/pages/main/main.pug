@@ -1,22 +1,22 @@
 extends ../../layout/layout.pug
 
 block head
-    link(rel="stylesheet", href="/styles/main.css")
-    
+  link(rel='stylesheet', href='/styles/main.css')
+
 block content
-    img.main-banner(src="/assets/images/banner.png", alt="배민 가이드",)
-    a.main-login(href="/signin")
-        .main-login-left
-            img.main-login-avatar(src="/assets/icons/default-avatar.png")
-            if userData
-                p.main-login-txt #{userData.nickname}
-            else
-                p.main-login-txt 로그인해주세요
-        img.chevron-right(src="/assets/icons/chevron-right.png")
-    include ../../components/main/grid-menu
-    .main-disposable
-        .main-disposable-left
-            img.main-disposable-image(src="/assets/icons/sprout.png")
-            p.main-disposable-txt 일회용품 덜 쓰기, 함께해요!
-        img.chevron-right(src="/assets/icons/chevron-right.png")
-    include ../../components/main/bottom-menu
+  img.main-banner(src='/assets/images/banner.png', alt='배민 가이드')
+  a.main-login(href='/signin')
+    .main-login-left
+      img.main-login-avatar(src='/assets/icons/default-avatar.png')
+      if userData
+        p.main-login-txt #{ userData.nickname }
+      else
+        p.main-login-txt 로그인해주세요
+    img.chevron-right(src='/assets/icons/chevron-right.png')
+  include ../../components/main/grid-menu
+  .main-disposable
+    .main-disposable-left
+      img.main-disposable-image(src='/assets/icons/sprout.png')
+      p.main-disposable-txt 일회용품 덜 쓰기, 함께해요!
+    img.chevron-right(src='/assets/icons/chevron-right.png')
+  include ../../components/main/bottom-menu
