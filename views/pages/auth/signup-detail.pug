@@ -15,7 +15,7 @@ block next-page
 
 block content
   .signup-detail-wrapper
-    form.singup-detail-form(action='/user/signup', method='POST')
+    form.signup-detail-form(action='/user/signup', method='POST')
       +input("이메일", 'email', "email" , "ex) crong@woowahan.com", "이메일 형식을 지켜주세요", true, true).email
         +button('중복확인', "#ffffff", "#bbbbbb", "#bbbbbb").singup-email-duplicate-button(type='button')
       +input("닉네임", 'nickname', "text", "닉네임을 입력해주세요", "닉네임을 입력해주세요", true).nickname

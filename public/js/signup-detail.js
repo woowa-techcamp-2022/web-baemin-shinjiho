@@ -3,7 +3,7 @@ import { PASSWORD_MIN_LENGTH } from './constant.js';
 import { showElement, hideElement, removeInputValue, verifyInputValue, setAutoDot } from './util.js';
 
 const init = () => {
-  const $signupForm = document.querySelector('.singup-detail-form');
+  const $signupForm = document.querySelector('.signup-detail-form');
   const $emailGroup = document.querySelector('.input-group.email');
   const $emailInput = document.querySelector('.input-group.email .input');
   const $emailError = document.querySelector('.input-group.email p.error-message');
