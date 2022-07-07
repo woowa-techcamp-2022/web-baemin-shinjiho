@@ -21,14 +21,14 @@ const init = () => {
     return randomCode;
   };
 
-  const setAutoHyphen = ($input) => {
-    $input.value = $input.value.replace(/[^0-9]/g, '').replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
+  const setAutoHyphen = ($target, value) => {
+    $target.value = value.replace(/[^0-9]/g, '').replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
   };
 
-  const validatePhoneNumber = ($input) => {
+  const validatePhoneNumber = (value) => {
     const phoneRegExp = /01[0-9]{1}-[0-9]{4}-[0-9]{4}/;
 
-    return phoneRegExp.test($input.value);
+    return phoneRegExp.test(value);
   };
 
   const removePhoneInputValue = () => {
@@ -66,6 +66,7 @@ const init = () => {
     $phoneLabel.classList.add('verified');
     $validateButton.classList.add('hide');
     $verifiedCodeForm.classList.remove('hide');
+    $phoneInputRemoveButton.classList.add('hide');
 
     $phoneInput.disabled = true;
 
@@ -73,12 +74,14 @@ const init = () => {
     setVerifiedCode(randomCode);
   };
 
-  const changePhoneInput = () => {
-    setAutoHyphen($phoneInput);
-    toggleShowPhoneInputRemoveButton();
+  const changePhoneInput = (e) => {
+    const { value } = e.target;
 
+    setAutoHyphen($phoneInput, value);
+
+    toggleShowPhoneInputRemoveButton();
     if ($phoneInput.value.length === PHONE_NUMBER_LENGTH) {
-      if (validatePhoneNumber($phoneInput)) {
+      if (validatePhoneNumber($phoneInput.value)) {
         $phoneValidateCheck.classList.add('verified');
         return;
       }
@@ -92,8 +95,10 @@ const init = () => {
     setVerifiedCode(randomCode);
   };
 
-  const changeVerifiedCodeInput = () => {
-    if ($verifiedCodeInput.value.length === VERIFIED_CODE_LENGTH) {
+  const changeVerifiedCodeInput = (e) => {
+    const { value } = e.target;
+
+    if (value.length === VERIFIED_CODE_LENGTH) {
       $nextPageButton.classList.add('verified');
       return;
     }
