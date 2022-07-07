@@ -1,11 +1,11 @@
 mixin radio(text, desc, name, inputId, imgSrc, defaultChecked)
-    .radio-wrapper
-        input(type="radio" name= name id= inputId checked= defaultChecked)
-        label(for= inputId)
-            .radio-left
-                i
-                div
-                    p.radio-text #{text}
-                    if desc
-                        p.radio-desc #{desc}
-        img.radio-image(src= imgSrc)
+  .radio-wrapper
+    input(type='radio', name=name, id=inputId, checked=defaultChecked)
+    label(for=inputId)
+      .radio-left
+        i
+        div
+          p.radio-text #{ text }
+          if desc
+            p.radio-desc #{ desc }
+    img.radio-image(src=imgSrc)
