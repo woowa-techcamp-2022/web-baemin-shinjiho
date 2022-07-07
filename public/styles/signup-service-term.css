@@ -20,8 +20,11 @@
 
 .service-term-next-button {
   margin-top: 240px;
+  cursor: default;
 }
 
 .service-term-next-button.active {
+  cursor: pointer;
+
   background-color: var(--color-primary) !important;
 }
