@@ -17,6 +17,10 @@
   width: 100%;
 }
 
+.signup-phone-input:disabled {
+  color: var(--color-gray300);
+}
+
 .signup-phone-label {
   font-size: 14px;
 }
