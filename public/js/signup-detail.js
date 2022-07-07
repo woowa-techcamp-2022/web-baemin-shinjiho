@@ -58,8 +58,8 @@ const init = () => {
   };
 
   const verifyAllRequiredInputs = () => {
-    const inputCount = document.querySelectorAll('.signup-input').length;
-    const verifiedInputCount = document.querySelectorAll('.signup-input.verified').length;
+    const inputCount = document.querySelectorAll('.input').length;
+    const verifiedInputCount = document.querySelectorAll('.input.verified').length;
     return inputCount === verifiedInputCount;
   };
 
