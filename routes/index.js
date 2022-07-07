@@ -20,4 +20,8 @@ router.get('/signup/term', (req, res) => {
   res.render('pages/auth/signup-service-term', { title: '회원가입' });
 });
 
+router.get('/signup/phone', (req, res) => {
+  res.render('pages/auth/signup-phone', { title: '회원가입' });
+});
+
 module.exports = router;

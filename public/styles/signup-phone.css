@@ -1,0 +1,7 @@
+.signup-phone-next-page {
+  color: var(--color-gray300);
+}
+
+.signup-phone-next-page.active {
+  color: var(--color-black);
+}
