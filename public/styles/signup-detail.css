@@ -1,9 +1,17 @@
+.error-message {
+  position: absolute;
+
+  left: 0;
+  bottom: -20px;
+  margin-top: 4px;
+}
+
 .signup-detail-next-page {
   cursor: default;
   color: var(--color-gray300);
 }
 
-.signup-detail-next-page.active {
+.signup-detail-next-page.verified {
   cursor: pointer;
   color: var(--color-black);
 }
@@ -25,13 +33,25 @@
   font-size: 14px;
 }
 
-.signup-email-form {
+.singup-detail-group {
   margin-bottom: 50px;
 }
 
-.signup-email-input-wrapper {
+.signup-detail-input-wrapper {
   display: flex;
+
   gap: 8px;
+}
+
+.signup-input-wrapper {
+  position: relative;
+
+  flex: 1;
+  display: flex;
+}
+
+.signup-input-wrapper input {
+  width: 100%;
 }
 
 .signup-input-wrapper {
@@ -58,4 +78,23 @@
 
   background: url('/assets/icons/check-inactive.png');
   background-size: cover;
+}
+
+.signup-input.verified + .signup-detail-input-check {
+  background: url('/assets/icons/check-active.png');
+  background-size: cover;
+}
+
+.signup-detail-input-remover {
+  position: absolute;
+  right: 30px;
+  bottom: 10px;
+}
+
+.singup-detail-group:not(.email) {
+  display: none;
+}
+
+.singup-detail-group.email.verified ~ .singup-detail-group {
+  display: block;
 }
