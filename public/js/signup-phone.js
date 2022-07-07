@@ -6,7 +6,6 @@ const init = () => {
   const $phoneInput = document.querySelector('.input-group.phone .input');
   const $validateButton = document.querySelector('#signup-phone-validate-button');
   const $phoneInputRemoveButton = document.querySelector('.input-group.phone .input-remover');
-  const $phoneValidateCheck = document.querySelector('.input-group.phone .input-check');
 
   const $verifiedCodeForm = document.querySelector('#signup-phone-verified-form');
   const $verifiedCodeInput = document.querySelector('.input-group.verified-code .input');
@@ -83,14 +82,15 @@ const init = () => {
     setAutoHyphen($phoneInput, value);
 
     toggleShowPhoneInputRemoveButton();
+
     if ($phoneInput.value.length === PHONE_NUMBER_LENGTH) {
       if (validatePhoneNumber($phoneInput.value)) {
-        $phoneValidateCheck.classList.add('verified');
+        $phoneInput.classList.add('verified');
         return;
       }
     }
 
-    $phoneValidateCheck.classList.remove('verified');
+    $phoneInput.classList.remove('verified');
   };
 
   const clickReloadVerfiedCode = () => {

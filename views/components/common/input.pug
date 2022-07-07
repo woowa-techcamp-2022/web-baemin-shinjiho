@@ -3,7 +3,7 @@ mixin input(label, name, type="text", placeholder, errorMessage, hasCheck, hasRe
     label.label= label
     .detail-input-wrapper
       .input-wrapper
-        input.input.input-underline(type=type, name=name, placeholder=placeholder, required)
+        input.input.input-underline(type=type, name=name, placeholder=placeholder, maxLength=maxLength, required)
         if hasCheck
           .input-check
         p.error-message.hide= errorMessage
