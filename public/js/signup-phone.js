@@ -1,5 +1,7 @@
 import { SECOND_MILLISECOND, PHONE_NUMBER_LENGTH, VERIFIED_CODE_LENGTH } from './constant.js';
 
+import { setAutoHyphen, removeInputValue, hideElement, showElement, verifyInputValue } from './util.js';
+
 const init = () => {
   const $phoneForm = document.querySelector('#signup-phone-form');
   const $phoneLabel = document.querySelector('.input-group.phone .label');
@@ -21,32 +23,23 @@ const init = () => {
     return randomCode;
   };
 
-  const setAutoHyphen = ($target, value) => {
-    $target.value = value.replace(/[^0-9]/g, '').replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
-  };
-
   const validatePhoneNumber = (value) => {
     const phoneRegExp = /01[0-9]{1}-[0-9]{4}-[0-9]{4}/;
 
     return phoneRegExp.test(value);
   };
 
-  const removePhoneInputValue = () => {
-    $phoneInput.value = '';
-
-    toggleShowPhoneInputRemoveButton();
-  };
-
   const toggleShowPhoneInputRemoveButton = () => {
     if ($phoneInput.value.length) {
-      $phoneInputRemoveButton.classList.remove('hide');
+      showElement($phoneInputRemoveButton);
     } else {
-      $phoneInputRemoveButton.classList.add('hide');
+      hideElement($phoneInputRemoveButton);
     }
   };
 
   const removeVerifiedCode = () => {
-    $verifiedCodeInput.value = '';
+    removeInputValue($verifiedCodeInput);
+
     $nextPageButton.classList.remove('verified');
   };
 
@@ -66,14 +59,19 @@ const init = () => {
     if (!validatePhoneNumber($phoneInput.value)) return;
 
     $phoneLabel.classList.add('verified');
-    $validateButton.classList.add('hide');
-    $verifiedCodeForm.classList.remove('hide');
-    $phoneInputRemoveButton.classList.add('hide');
+
+    hideElement($validateButton);
+    hideElement($phoneInputRemoveButton);
+    showElement($verifiedCodeForm);
 
     $phoneInput.disabled = true;
 
     const randomCode = generateRandomVerifiedCode();
     setVerifiedCode(randomCode);
+  };
+
+  const clickPhoneRemoveButton = () => {
+    removeInputValue($phoneInput, $phoneInputRemoveButton);
   };
 
   const changePhoneInput = (e) => {
@@ -84,10 +82,8 @@ const init = () => {
     toggleShowPhoneInputRemoveButton();
 
     if ($phoneInput.value.length === PHONE_NUMBER_LENGTH) {
-      if (validatePhoneNumber($phoneInput.value)) {
-        $phoneInput.classList.add('verified');
-        return;
-      }
+      verifyInputValue($phoneInput, validatePhoneNumber($phoneInput.value));
+      return;
     }
 
     $phoneInput.classList.remove('verified');
@@ -117,7 +113,7 @@ const init = () => {
 
   $phoneForm.addEventListener('submit', submitPhoneForm);
   $phoneInput.addEventListener('input', changePhoneInput);
-  $phoneInputRemoveButton.addEventListener('click', removePhoneInputValue);
+  $phoneInputRemoveButton.addEventListener('click', clickPhoneRemoveButton);
   $verifiedCodeReload.addEventListener('click', clickReloadVerfiedCode);
   $verifiedCodeInput.addEventListener('input', changeVerifiedCodeInput);
   $nextPageButton.addEventListener('click', clickNextPageButton);
