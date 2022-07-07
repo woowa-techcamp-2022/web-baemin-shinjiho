@@ -1,41 +1,25 @@
 import { PASSWORD_MIN_LENGTH } from './constant.js';
 
+import { showElement, hideElement, removeInputValue, verifyInputValue, setAutoDot } from './util.js';
+
 const init = () => {
   const $signupForm = document.querySelector('.singup-detail-form');
-  const $emailGroup = document.querySelector('.singup-detail-group.email');
-  const $emailInput = document.querySelector('.singup-detail-group.email .signup-input');
-  const $emailError = document.querySelector('.singup-detail-group.email p.error-message');
-  const $emailRemoveButton = document.querySelector('.signup-detail-input-remover');
+  const $emailGroup = document.querySelector('.input-group.email');
+  const $emailInput = document.querySelector('.input-group.email .input');
+  const $emailError = document.querySelector('.input-group.email p.error-message');
+  const $emailRemoveButton = document.querySelector('.input-remover');
   const $emailDuplicateButton = document.querySelector('.singup-email-duplicate-button');
 
-  const $nicknameInput = document.querySelector('.singup-detail-group.nickname .signup-input');
-  const $nicknameError = document.querySelector('.singup-detail-group.nickname p.error-message');
+  const $nicknameInput = document.querySelector('.input-group.nickname .input');
+  const $nicknameError = document.querySelector('.input-group.nickname p.error-message');
 
-  const $passwordInput = document.querySelector('.singup-detail-group.password .signup-input');
-  const $passwordError = document.querySelector('.singup-detail-group.password p.error-message');
+  const $passwordInput = document.querySelector('.input-group.password .input');
+  const $passwordError = document.querySelector('.input-group.password p.error-message');
 
-  const $birthInput = document.querySelector('.singup-detail-group.birth .signup-input');
-  const $birthError = document.querySelector('.singup-detail-group.birth p.error-message');
+  const $birthInput = document.querySelector('.input-group.birth .input');
+  const $birthError = document.querySelector('.input-group.birth p.error-message');
 
   const $nextButton = document.querySelector('#signup-detail-next-page');
-
-  const removeInputValue = ($input, $removeButton) => {
-    $input.value = '';
-    $removeButton.classList.add('hide');
-  };
-
-  const showErrorMessage = ($target) => {
-    $target.classList.remove('hide');
-  };
-
-  const hideErrorMessage = ($target) => {
-    $target.classList.add('hide');
-  };
-
-  const verifyInputValue = ($target, isValid) => {
-    if (isValid) $target.classList.add('verified');
-    else $target.classList.remove('verified');
-  };
 
   const validateEmail = (value) => {
     const emailRegExp = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
@@ -73,13 +57,9 @@ const init = () => {
     return birthRegExp.test(value);
   };
 
-  const setAutoDot = ($target, value) => {
-    $target.value = value.replace(/[^0-9]/g, '').replace(/^(\d{4})(\d{2})(\d{2})$/, `$1.$2.$3`);
-  };
-
   const verifyAllRequiredInputs = () => {
-    const inputCount = document.querySelectorAll('.signup-input').length;
-    const verifiedInputCount = document.querySelectorAll('.signup-input.verified').length;
+    const inputCount = document.querySelectorAll('.input').length;
+    const verifiedInputCount = document.querySelectorAll('.input.verified').length;
     return inputCount === verifiedInputCount;
   };
 
@@ -103,7 +83,7 @@ const init = () => {
       $emailInput.disabled = true;
       $emailRemoveButton.classList.add('hide');
     } else {
-      showErrorMessage($emailError);
+      showElement($emailError);
     }
   };
 
@@ -113,7 +93,7 @@ const init = () => {
     if (value) $emailRemoveButton.classList.remove('hide');
     else $emailRemoveButton.classList.add('hide');
 
-    if (!$emailError.classList.contains('hide')) hideErrorMessage($emailError);
+    if (!$emailError.classList.contains('hide')) hideElement($emailError);
   };
 
   const changeNicknameInput = (e) => {
@@ -121,8 +101,8 @@ const init = () => {
 
     verifyInputValue($nicknameInput, !!value);
 
-    if (!value) showErrorMessage($nicknameError);
-    else hideErrorMessage($nicknameError);
+    if (!value) showElement($nicknameError);
+    else hideElement($nicknameError);
 
     checkForm();
   };
@@ -132,8 +112,8 @@ const init = () => {
 
     verifyInputValue($passwordInput, validatePassword(value));
 
-    if (!validatePassword(value)) showErrorMessage($passwordError);
-    else hideErrorMessage($passwordError);
+    if (!validatePassword(value)) showElement($passwordError);
+    else hideElement($passwordError);
 
     checkForm();
   };
@@ -149,8 +129,8 @@ const init = () => {
 
     verifyInputValue($birthInput, validateBirth($birthInput.value));
 
-    if (!validateBirth($birthInput.value)) showErrorMessage($birthError);
-    else hideErrorMessage($birthError);
+    if (!validateBirth($birthInput.value)) showElement($birthError);
+    else hideElement($birthError);
 
     checkForm();
   };

@@ -1,16 +1,18 @@
 import { SECOND_MILLISECOND, PHONE_NUMBER_LENGTH, VERIFIED_CODE_LENGTH } from './constant.js';
 
+import { setAutoHyphen, removeInputValue, hideElement, showElement, verifyInputValue } from './util.js';
+
 const init = () => {
-  const $phoneForm = document.getElementById('signup-phone-form');
-  const $phoneLabel = document.getElementById('signup-phone-label');
-  const $phoneInput = document.getElementById('signup-phone-input');
-  const $validateButton = document.getElementById('signup-phone-validate-button');
-  const $phoneInputRemoveButton = document.getElementById('signup-phone-input-remover');
-  const $phoneValidateCheck = document.getElementById('signup-phone-verified-check');
-  const $verifiedCodeForm = document.getElementById('signup-phone-verified-form');
-  const $verifiedCodeInput = document.getElementById('signup-phone-verified-input');
-  const $verifiedCodeReload = document.getElementById('signup-phone-reload-code');
-  const $nextPageButton = document.getElementById('signup-phone-next-page');
+  const $phoneForm = document.querySelector('#signup-phone-form');
+  const $phoneLabel = document.querySelector('.input-group.phone .label');
+  const $phoneInput = document.querySelector('.input-group.phone .input');
+  const $validateButton = document.querySelector('#signup-phone-validate-button');
+  const $phoneInputRemoveButton = document.querySelector('.input-group.phone .input-remover');
+
+  const $verifiedCodeForm = document.querySelector('#signup-phone-verified-form');
+  const $verifiedCodeInput = document.querySelector('.input-group.verified-code .input');
+  const $verifiedCodeReload = document.querySelector('#signup-phone-reload-code');
+  const $nextPageButton = document.querySelector('#signup-phone-next-page');
 
   const generateRandomVerifiedCode = () => {
     const randomCode = new Array(4)
@@ -21,32 +23,23 @@ const init = () => {
     return randomCode;
   };
 
-  const setAutoHyphen = ($target, value) => {
-    $target.value = value.replace(/[^0-9]/g, '').replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
-  };
-
   const validatePhoneNumber = (value) => {
     const phoneRegExp = /01[0-9]{1}-[0-9]{4}-[0-9]{4}/;
 
     return phoneRegExp.test(value);
   };
 
-  const removePhoneInputValue = () => {
-    $phoneInput.value = '';
-
-    toggleShowPhoneInputRemoveButton();
-  };
-
   const toggleShowPhoneInputRemoveButton = () => {
     if ($phoneInput.value.length) {
-      $phoneInputRemoveButton.classList.remove('hide');
+      showElement($phoneInputRemoveButton);
     } else {
-      $phoneInputRemoveButton.classList.add('hide');
+      hideElement($phoneInputRemoveButton);
     }
   };
 
   const removeVerifiedCode = () => {
-    $verifiedCodeInput.value = '';
+    removeInputValue($verifiedCodeInput);
+
     $nextPageButton.classList.remove('verified');
   };
 
@@ -63,15 +56,22 @@ const init = () => {
   const submitPhoneForm = (e) => {
     e.preventDefault();
 
+    if (!validatePhoneNumber($phoneInput.value)) return;
+
     $phoneLabel.classList.add('verified');
-    $validateButton.classList.add('hide');
-    $verifiedCodeForm.classList.remove('hide');
-    $phoneInputRemoveButton.classList.add('hide');
+
+    hideElement($validateButton);
+    hideElement($phoneInputRemoveButton);
+    showElement($verifiedCodeForm);
 
     $phoneInput.disabled = true;
 
     const randomCode = generateRandomVerifiedCode();
     setVerifiedCode(randomCode);
+  };
+
+  const clickPhoneRemoveButton = () => {
+    removeInputValue($phoneInput, $phoneInputRemoveButton);
   };
 
   const changePhoneInput = (e) => {
@@ -80,14 +80,13 @@ const init = () => {
     setAutoHyphen($phoneInput, value);
 
     toggleShowPhoneInputRemoveButton();
+
     if ($phoneInput.value.length === PHONE_NUMBER_LENGTH) {
-      if (validatePhoneNumber($phoneInput.value)) {
-        $phoneValidateCheck.classList.add('verified');
-        return;
-      }
+      verifyInputValue($phoneInput, validatePhoneNumber($phoneInput.value));
+      return;
     }
 
-    $phoneValidateCheck.classList.remove('verified');
+    $phoneInput.classList.remove('verified');
   };
 
   const clickReloadVerfiedCode = () => {
@@ -114,7 +113,7 @@ const init = () => {
 
   $phoneForm.addEventListener('submit', submitPhoneForm);
   $phoneInput.addEventListener('input', changePhoneInput);
-  $phoneInputRemoveButton.addEventListener('click', removePhoneInputValue);
+  $phoneInputRemoveButton.addEventListener('click', clickPhoneRemoveButton);
   $verifiedCodeReload.addEventListener('click', clickReloadVerfiedCode);
   $verifiedCodeInput.addEventListener('input', changeVerifiedCodeInput);
   $nextPageButton.addEventListener('click', clickNextPageButton);

@@ -1,3 +1,5 @@
+@import 'common/input.css';
+
 .error-message {
   position: absolute;
 
@@ -21,68 +23,8 @@
   padding: 0 18px;
 }
 
-.signup-detail-input {
-  flex: 1;
-}
-
-.signup-detail-input:disabled {
-  color: var(--color-gray300);
-}
-
-.signup-detail-label {
-  font-size: 14px;
-}
-
-.singup-detail-group {
-  margin-bottom: 50px;
-}
-
-.signup-detail-input-wrapper {
-  display: flex;
-
-  gap: 8px;
-}
-
-.signup-input-wrapper {
-  position: relative;
-
-  flex: 1;
-  display: flex;
-}
-
-.signup-input-wrapper input {
-  width: 100%;
-}
-
-.signup-input-wrapper {
-  position: relative;
-}
-
 .singup-email-duplicate-button {
   padding: 10px 20px;
-}
-
-.signup-detail-info-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-}
-
-.signup-detail-input-check {
-  position: absolute;
-  bottom: 10px;
-  right: 4px;
-
-  width: 16px;
-  height: 16px;
-
-  background: url('/assets/icons/check-inactive.png');
-  background-size: cover;
-}
-
-.signup-input.verified + .signup-detail-input-check {
-  background: url('/assets/icons/check-active.png');
-  background-size: cover;
 }
 
 .signup-detail-input-remover {
@@ -91,10 +33,10 @@
   bottom: 10px;
 }
 
-.singup-detail-group:not(.email) {
+.input-group:not(.email) {
   display: none;
 }
 
-.singup-detail-group.email.verified ~ .singup-detail-group {
+.input-group.email.verified ~ .input-group {
   display: block;
 }
