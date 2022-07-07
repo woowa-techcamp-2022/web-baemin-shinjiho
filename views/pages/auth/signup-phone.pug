@@ -33,5 +33,15 @@ block content
         type='submit'
       )
 
+    form#signup-phone-verified-form.signup-phone-verified-form.hide
+      label#signup-phone-verified-label.signup-phone-label(for='signup-phone') 인증번호
+      input#signup-phone-verified-input.signup-phone-input.input-underline(
+        type='text',
+        placeholder='인증번호를 입력해주세요.',
+        maxlength='4',
+        required
+      )
+      p#signup-phone-reload-code.signup-phone-reload-code 인증번호 다시받기
+
 block script
-  script(src='/js/signup-phone.js')
+  script(src='/js/signup-phone.js', type='module')

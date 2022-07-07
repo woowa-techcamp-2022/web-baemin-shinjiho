@@ -72,6 +72,10 @@ button {
   color: var(--color-red);
 }
 
+.hide {
+  display: none;
+}
+
 input[type='checkbox'],
 input[type='radio'] {
   position: absolute;

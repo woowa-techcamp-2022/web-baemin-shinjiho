@@ -1,4 +1,4 @@
-const PHONE_NUMBER_LENGTH = 13;
+import { SECOND_MILLISECOND, PHONE_NUMBER_LENGTH } from './constant.js';
 
 const init = () => {
   const $phoneForm = document.getElementById('signup-phone-form');
@@ -7,9 +7,15 @@ const init = () => {
   const $validateButton = document.getElementById('signup-phone-validate-button');
   const $phoneInputRemoveButton = document.getElementById('signup-phone-input-remover');
   const $phoneValidateCheck = document.getElementById('signup-phone-verified-check');
+  const $verifiedCodeForm = document.getElementById('signup-phone-verified-form');
+  const $verifiedCodeInput = document.getElementById('signup-phone-verified-input');
+  const $verifiedCodeReload = document.getElementById('signup-phone-reload-code');
 
   const generateRandomVerifiedCode = () => {
-    const randomCode = new Array(4).map((_) => Math.floor(Math.random() * 10)).join('');
+    const randomCode = new Array(4)
+      .fill(0)
+      .map((_) => Math.floor(Math.random() * 10))
+      .join('');
 
     return randomCode;
   };
@@ -38,14 +44,29 @@ const init = () => {
     }
   };
 
+  const removeVerifiedCode = () => {
+    $verifiedCodeInput.value = '';
+  };
+
+  const setVerifiedCode = (randomCode) => {
+    removeVerifiedCode();
+
+    setTimeout(() => {
+      $verifiedCodeInput.value = randomCode;
+    }, 2 * SECOND_MILLISECOND);
+  };
+
   const submitPhoneForm = (e) => {
     e.preventDefault();
 
-    $validateButton.classList.add('verified');
     $phoneLabel.classList.add('verified');
+    $validateButton.classList.add('hide');
+    $verifiedCodeForm.classList.remove('hide');
+
     $phoneInput.disabled = true;
 
     const randomCode = generateRandomVerifiedCode();
+    setVerifiedCode(randomCode);
   };
 
   const changePhoneInput = () => {
@@ -63,9 +84,15 @@ const init = () => {
     $phoneValidateCheck.classList.remove('verified');
   };
 
+  const clickReloadVerfiedCode = () => {
+    const randomCode = generateRandomVerifiedCode();
+    setVerifiedCode(randomCode);
+  };
+
   $phoneForm.addEventListener('submit', submitPhoneForm);
   $phoneInput.addEventListener('input', changePhoneInput);
   $phoneInputRemoveButton.addEventListener('click', removePhoneInputValue);
+  $verifiedCodeReload.addEventListener('click', clickReloadVerfiedCode);
 };
 
 init();
