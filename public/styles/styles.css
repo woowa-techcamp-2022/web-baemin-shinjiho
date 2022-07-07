@@ -12,6 +12,10 @@
   --color-red: #fc5a46;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .app {
   margin: 0 auto;
   max-width: 360px;
@@ -53,6 +57,7 @@ input::placeholder {
   cursor: pointer;
 
   padding: 14px 0;
+  width: 100%;
 
   border: none;
   border-radius: 4px;
@@ -64,4 +69,121 @@ input::placeholder {
   font-size: 12px;
 
   color: var(--color-red);
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  position: absolute;
+  left: -9999px;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: -1;
+  appearance: none;
+}
+
+.check-all-agree-label {
+  font-weight: 700;
+}
+
+input[type='checkbox'] + label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 14px;
+}
+
+input[type='checkbox'] + label i {
+  display: inline-block;
+
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+
+  background: url('/assets/icons/checkbox-inactive.png');
+  background-size: cover;
+}
+
+input[type='checkbox']:checked + label i {
+  background: url('/assets/icons/checkbox-active.png');
+  background-size: cover;
+}
+
+input[type='checkbox'] + label img {
+}
+
+.checkbox-wrapper {
+  margin-bottom: 20px;
+}
+
+.checkbox-left,
+.radio-left {
+  display: flex;
+  align-items: center;
+}
+
+.radio-wrapper {
+  margin-bottom: 12px;
+
+  height: 60px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 0 12px;
+
+  border-radius: 8px;
+
+  background-color: var(--color-gray200);
+}
+
+input[type='radio'] + label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+input[type='radio'] + label i {
+  display: inline-block;
+
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+
+  background: url('/assets/icons/radio-inactive.png');
+  background-size: cover;
+}
+
+input[type='radio']:checked + label i {
+  background: url('/assets/icons/radio-active.png');
+  background-size: cover;
+}
+
+.radio-text {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.radio-desc {
+  margin-top: 4px;
+
+  font-size: 12px;
+
+  color: var(--color-gray300);
+}
+
+.radio-image {
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+
+  width: 60px;
+  height: auto;
 }

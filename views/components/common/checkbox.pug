@@ -1,0 +1,9 @@
+mixin checkbox(text, hasDetail, labelClassName, inputClassName, inputId)
+    .checkbox-wrapper
+        input(type="checkbox" id= inputId class= inputClassName)
+        label(for= inputId class= labelClassName)
+            .checkbox-left
+                i
+                | #{text}
+            if hasDetail
+                img.chevron-right(src= "/assets/icons/chevron-right.png")
