@@ -21,3 +21,7 @@
 .service-term-next-button {
   margin-top: 240px;
 }
+
+.service-term-next-button.active {
+  background-color: var(--color-primary) !important;
+}

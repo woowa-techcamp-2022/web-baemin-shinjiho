@@ -3,24 +3,17 @@ const init = () => {
   const $checkboxList = document.getElementById('service-term-checkbox-list');
   const $nextButton = document.getElementById('service-term-next-button');
 
-  const $toggleCheckbox = ($checkbox) => {
-    $checkbox.checked = !$checkbox.checked;
-  };
-
-  const toggleAllCheckbox = () => {
-    const checkboxList = $checkboxList.querySelectorAll('input[type="checkbox"]');
-
-    checkboxList.forEach((checkbox) => {
-      $toggleCheckbox(checkbox);
-    });
-  };
-
   const toggleNextButton = (isAllRequired) => {
     if (isAllRequired) {
-      $nextButton.style.backgroundColor = '#2ac1bc';
+      $nextButton.classList.add('active');
       return;
     }
-    $nextButton.style.backgroundColor = '#bbbbbb';
+    $nextButton.classList.remove('active');
+  };
+
+  const checkCheckBoxList = () => {
+    const checkedCheckboxList = $checkboxList.querySelectorAll('input[type="checkbox"]:checked');
+    if (checkedCheckboxList.length !== $checkboxList.length) $checkAllAgree.checked = false;
   };
 
   const checkRequiredCheckbox = () => {
@@ -34,8 +27,28 @@ const init = () => {
     toggleNextButton(false);
   };
 
-  $checkAllAgree.addEventListener('change', toggleAllCheckbox);
-  $checkboxList.addEventListener('change', checkRequiredCheckbox);
+  const changeAllCheckbox = () => {
+    const checkboxList = $checkboxList.querySelectorAll('input[type="checkbox"]');
+    const allCheckFlag = $checkAllAgree.checked;
+
+    checkboxList.forEach((checkbox) => {
+      if (allCheckFlag) {
+        checkbox.checked = true;
+      } else {
+        checkbox.checked = false;
+      }
+    });
+
+    checkRequiredCheckbox();
+  };
+
+  const toggleCheckBox = () => {
+    checkCheckBoxList();
+    checkRequiredCheckbox();
+  };
+
+  $checkAllAgree.addEventListener('change', changeAllCheckbox);
+  $checkboxList.addEventListener('change', toggleCheckBox);
 };
 
 init();
