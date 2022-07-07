@@ -1,9 +1,17 @@
 .signin-wrapper {
-  margin-top: 120px;
   padding: 0 18px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding-bottom: 40px;
 }
 
 .signin-form {
+  margin-top: 120px;
+
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -35,7 +43,6 @@
 }
 
 .signin-oauth-wrapper {
-  margin-top: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
