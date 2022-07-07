@@ -24,4 +24,8 @@ router.get('/signup/phone', (req, res) => {
   res.render('pages/auth/signup-phone', { title: '회원가입' });
 });
 
+router.get('/signup/detail', (req, res) => {
+  res.render('pages/auth/signup-detail', { title: '회원가입' });
+});
+
 module.exports = router;

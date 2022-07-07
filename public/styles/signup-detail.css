@@ -1,0 +1,61 @@
+.signup-detail-next-page {
+  cursor: default;
+  color: var(--color-gray300);
+}
+
+.signup-detail-next-page.active {
+  cursor: pointer;
+  color: var(--color-black);
+}
+
+.signup-detail-wrapper {
+  margin-top: 90px;
+  padding: 0 18px;
+}
+
+.signup-detail-input {
+  flex: 1;
+}
+
+.signup-detail-input:disabled {
+  color: var(--color-gray300);
+}
+
+.signup-detail-label {
+  font-size: 14px;
+}
+
+.signup-email-form {
+  margin-bottom: 50px;
+}
+
+.signup-email-input-wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.signup-input-wrapper {
+  position: relative;
+}
+
+.singup-email-duplicate-button {
+  padding: 10px 20px;
+}
+
+.signup-detail-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.signup-detail-input-check {
+  position: absolute;
+  bottom: 10px;
+  right: 4px;
+
+  width: 16px;
+  height: 16px;
+
+  background: url('/assets/icons/check-inactive.png');
+  background-size: cover;
+}
