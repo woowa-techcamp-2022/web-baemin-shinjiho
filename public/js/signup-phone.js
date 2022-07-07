@@ -47,6 +47,7 @@ const init = () => {
 
   const removeVerifiedCode = () => {
     $verifiedCodeInput.value = '';
+    $nextPageButton.classList.remove('verified');
   };
 
   const setVerifiedCode = (randomCode) => {
