@@ -1,6 +1,13 @@
 import { PASSWORD_MIN_LENGTH } from './constant.js';
 
-import { showElement, hideElement, removeInputValue, verifyInputValue, setAutoDot } from './util.js';
+import {
+  showElement,
+  hideElement,
+  removeInputValue,
+  verifyInputValue,
+  setAutoDot,
+  toggleRemoveButton,
+} from './util.js';
 
 const init = () => {
   const $signupForm = document.querySelector('.signup-detail-form');
@@ -81,7 +88,7 @@ const init = () => {
     if (validateEmail(emailValue)) {
       $emailGroup.classList.add('verified');
       $emailInput.disabled = true;
-      $emailRemoveButton.classList.add('hide');
+      hideElement($emailRemoveButton);
     } else {
       showElement($emailError);
     }
@@ -90,8 +97,7 @@ const init = () => {
   const changeEmailInput = (e) => {
     const { value } = e.target;
 
-    if (value) $emailRemoveButton.classList.remove('hide');
-    else $emailRemoveButton.classList.add('hide');
+    toggleRemoveButton($emailRemoveButton, !!value);
 
     if (!$emailError.classList.contains('hide')) hideElement($emailError);
   };

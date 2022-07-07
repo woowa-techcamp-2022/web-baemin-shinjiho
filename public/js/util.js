@@ -6,9 +6,14 @@ export const hideElement = ($target) => {
   $target.classList.add('hide');
 };
 
+export const toggleRemoveButton = ($removeButton, condition) => {
+  if (condition) showElement($removeButton);
+  else hideElement($removeButton);
+};
+
 export const removeInputValue = ($input, $removeButton) => {
   $input.value = '';
-  if ($removeButton) $removeButton.classList.add('hide');
+  if ($removeButton) hideElement($removeButton);
 };
 
 export const verifyInputValue = ($target, isValid) => {

@@ -1,6 +1,13 @@
 import { SECOND_MILLISECOND, PHONE_NUMBER_LENGTH, VERIFIED_CODE_LENGTH } from './constant.js';
 
-import { setAutoHyphen, removeInputValue, hideElement, showElement, verifyInputValue } from './util.js';
+import {
+  setAutoHyphen,
+  removeInputValue,
+  hideElement,
+  showElement,
+  verifyInputValue,
+  toggleRemoveButton,
+} from './util.js';
 
 const init = () => {
   const $phoneForm = document.querySelector('#signup-phone-form');
@@ -27,14 +34,6 @@ const init = () => {
     const phoneRegExp = /01[0-9]{1}-[0-9]{4}-[0-9]{4}/;
 
     return phoneRegExp.test(value);
-  };
-
-  const toggleShowPhoneInputRemoveButton = () => {
-    if ($phoneInput.value.length) {
-      showElement($phoneInputRemoveButton);
-    } else {
-      hideElement($phoneInputRemoveButton);
-    }
   };
 
   const removeVerifiedCode = () => {
@@ -79,7 +78,7 @@ const init = () => {
 
     setAutoHyphen($phoneInput, value);
 
-    toggleShowPhoneInputRemoveButton();
+    toggleRemoveButton($phoneInputRemoveButton, !!$phoneInput.value);
 
     if ($phoneInput.value.length === PHONE_NUMBER_LENGTH) {
       verifyInputValue($phoneInput, validatePhoneNumber($phoneInput.value));
