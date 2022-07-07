@@ -1,4 +1,2 @@
-mixin button(text, bgColor, color, borderColor)
-  button.button(
-    style={ border: `1px solid ${borderColor}`, 'background-color': bgColor || '#2ac1bc', color: color || '#ffffff' }
-  )&attributes(attributes)= text
+mixin button(text, bgColor= '#2ac1bc', color= '#ffffff', borderColor)
+  button.button(style={ border: borderColor ? `1px solid ${borderColor}` : '0', 'background-color': bgColor, color })&attributes(attributes)= text
