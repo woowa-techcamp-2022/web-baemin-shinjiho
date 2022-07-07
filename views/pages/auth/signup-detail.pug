@@ -14,42 +14,64 @@ block next-page
 
 block content
   .signup-detail-wrapper
-    form#signup-email-form.signup-email-form
-      label.signup-detail-label(for='signup-email') 이메일
-      .signup-email-input-wrapper
-        input.signup-detail-input.input-underline(type='text', placeholder='ex) crong@codesquad.kr', required)
-        button#signup-email-input-remover.signup-detail-input-remover.hide(type='button')
-          img(src='/assets/icons/close-circle.png', alt='이메일 지우기')
+    form.singup-detail-form(action='/user/signup', method='POST')
+      .singup-detail-group.email
+        label.signup-detail-label 이메일
+        .signup-detail-input-wrapper
+          .signup-input-wrapper
+            input.signup-input.input-underline(
+              type='text',
+              name='email',
+              placeholder='ex) crong@woowahan.com',
+              required
+            )
+            .signup-detail-input-check
+            p.error-message.hide 이메일 형식을 지켜주세요.
+            button.signup-detail-input-remover.input-remover-button.hide(type='button')
+              img(src='/assets/icons/close-circle.png', alt='번호 지우기')
 
-        +button("중복확인","#ffffff", "#000000", "#bbbbbb").singup-email-duplicate-button
+          +button('중복확인', "#ffffff", "#bbbbbb", "#bbbbbb").singup-email-duplicate-button(type='button')
 
-    .signup-detail-info-wrapper
-      div
-        label.signup-detail-label(for='signup-nickname') 닉네임
-        .signup-input-wrapper
-          input#signup-nickname-input.signup-detail-input.input-underline.w-full(
-            type='text',
-            placeholder='닉네임을 입력해주세요.',
-            required
-          )
-          .signup-detail-input-check
-      div
-        label.signup-detail-label(for='signup-password') 비밀번호
-        .signup-input-wrapper
-          input#signup-password-input.signup-detail-input.input-underline.w-full(
-            type='text',
-            placeholder='10자 이상 대문자, 소문자, 숫자, 특수문자 중 2종류 조합',
-            required
-          )
-          .signup-detail-input-check
-      div
-        label.signup-detail-label(for='signup-password') 생년월일
-        .signup-input-wrapper
-          input#signup-password-input.signup-detail-input.input-underline.w-full(
-            type='text',
-            placeholder='예) 2000.01.01',
-            required
-          )
-          .signup-detail-input-check
+      .singup-detail-group.nickname
+        label.signup-detail-label 닉네임
+        .signup-detail-input-wrapper
+          .signup-input-wrapper
+            input.signup-input.input-underline(type='text', name='nickname', placeholder='닉네임을 입력해주세요.', required)
+            .signup-detail-input-check
+            p.error-message.hide 닉네임을 입력해주세요.
+            button.signup-detail-input-remover.input-remover-button.hide(type='button')
+              img(src='/assets/icons/close-circle.png', alt='번호 지우기')
+
+      .singup-detail-group.password
+        label.signup-detail-label 비밀번호
+        .signup-detail-input-wrapper
+          .signup-input-wrapper
+            input.signup-input.input-underline(
+              type='password',
+              name='password',
+              placeholder='10자 이상 영어 대문자, 소문자, 숫자 특수문자 2종류',
+              required
+            )
+            .signup-detail-input-check
+            p.error-message.hide 10자 이상 영어 대문자, 소문자, 숫자 특수문자 중 2종류를 조합해야 합니다.
+            button.signup-detail-input-remover.input-remover-button.hide(type='button')
+              img(src='/assets/icons/close-circle.png', alt='번호 지우기')
+
+      .singup-detail-group.birth
+        label.signup-detail-label 생년월일
+        .signup-detail-input-wrapper
+          .signup-input-wrapper
+            input.signup-input.input-underline(
+              type='text',
+              name='birth',
+              placeholder='ex) 2000.01.01',
+              maxLength='10',
+              required
+            )
+            .signup-detail-input-check
+            p.error-message.hide 생년월일을 제대로 입력해주세요.
+            button.signup-detail-input-remover.input-remover-button.hide(type='button')
+              img(src='/assets/icons/close-circle.png', alt='번호 지우기')
 
 block script
+  script(src='/js/signup-detail.js', type='module')

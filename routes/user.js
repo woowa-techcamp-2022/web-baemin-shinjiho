@@ -24,6 +24,7 @@ router.post('/signin', async (req, res) => {
 });
 
 router.post('/signup', async (req, res) => {
+  console.log(req.body);
   const { email, password, nickname, birth } = req.body;
 
   const hashedPassword = await bcrypt.hash(password, 12);
@@ -36,8 +37,7 @@ router.post('/signup', async (req, res) => {
   };
 
   db.get('users').push(user).write();
-
-  res.render('pages/auth/signin');
+  res.redirect('/signin');
 });
 
 module.exports = router;

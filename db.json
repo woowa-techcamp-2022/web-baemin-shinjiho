@@ -2,9 +2,9 @@
   "users": [
     {
       "email": "test@test.com",
-      "password": "123456",
-      "nickname": "test",
-      "birth": "1996.02.09"
+      "password": "$2b$12$U9nfyOuJTxpwJlZenWvlRelLEpDsrHUv7z06BTx7xb1PwowHiVfHi",
+      "nickname": "abc",
+      "birth": "2022.01.01"
     }
   ]
 }
