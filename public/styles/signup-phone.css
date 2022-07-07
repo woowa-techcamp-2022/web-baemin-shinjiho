@@ -86,3 +86,8 @@
   font-size: 14px;
   color: var(--color-primary);
 }
+
+.signup-phone-next-page.verified {
+  cursor: pointer;
+  color: var(--color-black);
+}

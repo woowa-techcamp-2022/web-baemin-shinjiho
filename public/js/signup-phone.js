@@ -1,4 +1,4 @@
-import { SECOND_MILLISECOND, PHONE_NUMBER_LENGTH } from './constant.js';
+import { SECOND_MILLISECOND, PHONE_NUMBER_LENGTH, VERIFIED_CODE_LENGTH } from './constant.js';
 
 const init = () => {
   const $phoneForm = document.getElementById('signup-phone-form');
@@ -10,6 +10,7 @@ const init = () => {
   const $verifiedCodeForm = document.getElementById('signup-phone-verified-form');
   const $verifiedCodeInput = document.getElementById('signup-phone-verified-input');
   const $verifiedCodeReload = document.getElementById('signup-phone-reload-code');
+  const $nextPageButton = document.getElementById('signup-phone-next-page');
 
   const generateRandomVerifiedCode = () => {
     const randomCode = new Array(4)
@@ -53,6 +54,8 @@ const init = () => {
 
     setTimeout(() => {
       $verifiedCodeInput.value = randomCode;
+
+      $nextPageButton.classList.add('verified');
     }, 2 * SECOND_MILLISECOND);
   };
 
@@ -76,7 +79,6 @@ const init = () => {
     if ($phoneInput.value.length === PHONE_NUMBER_LENGTH) {
       if (validatePhoneNumber($phoneInput)) {
         $phoneValidateCheck.classList.add('verified');
-
         return;
       }
     }
@@ -89,10 +91,27 @@ const init = () => {
     setVerifiedCode(randomCode);
   };
 
+  const changeVerifiedCodeInput = () => {
+    if ($verifiedCodeInput.value.length === VERIFIED_CODE_LENGTH) {
+      $nextPageButton.classList.add('verified');
+      return;
+    }
+
+    $nextPageButton.classList.remove('verified');
+  };
+
+  const clickNextPageButton = () => {
+    if (!$nextPageButton.classList.contains('verified')) return;
+
+    location.href = '/signup/detail';
+  };
+
   $phoneForm.addEventListener('submit', submitPhoneForm);
   $phoneInput.addEventListener('input', changePhoneInput);
   $phoneInputRemoveButton.addEventListener('click', removePhoneInputValue);
   $verifiedCodeReload.addEventListener('click', clickReloadVerfiedCode);
+  $verifiedCodeInput.addEventListener('input', changeVerifiedCodeInput);
+  $nextPageButton.addEventListener('click', clickNextPageButton);
 };
 
 init();
