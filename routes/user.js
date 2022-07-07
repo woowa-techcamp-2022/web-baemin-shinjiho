@@ -4,13 +4,14 @@ const db = require('../lib/db');
 
 const router = express.Router();
 
-router.post('/signin', (req, res) => {
+router.post('/signin', async (req, res) => {
   const { email, password } = req.body;
 
   const exUser = db.get('users').find({ email }).value();
   if (exUser) {
-    // TODO : 비밀번호 검증 방법 수정
-    if (exUser.password === password) {
+    const comparePassword = await bcrypt.compare(password, exUser.password);
+
+    if (comparePassword) {
       req.session.email = email;
       return req.session.save((err) => {
         if (err) throw err;
