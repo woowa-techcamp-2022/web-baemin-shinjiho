@@ -70,14 +70,17 @@ const init = () => {
     return inputCount === verifiedInputCount;
   };
 
-  const activeNextButton = () => {
+  const activateNextButton = () => {
     $nextButton.classList.add('verified');
   };
 
-  const checkForm = () => {
-    if (!verifyAllRequiredInputs()) return;
+  const deactivateNextButton = () => {
+    $nextButton.classList.remove('verified');
+  };
 
-    activeNextButton();
+  const checkForm = () => {
+    if (!verifyAllRequiredInputs()) deactivateNextButton();
+    else activateNextButton();
   };
 
   const clickEmailDuplicateButton = () => {
@@ -109,8 +112,6 @@ const init = () => {
 
     if (!value) showElement($nicknameError);
     else hideElement($nicknameError);
-
-    checkForm();
   };
 
   const changePasswordInput = (e) => {
@@ -120,8 +121,6 @@ const init = () => {
 
     if (!validatePassword(value)) showElement($passwordError);
     else hideElement($passwordError);
-
-    checkForm();
   };
 
   const clickEmailRemoveButton = () => {
@@ -137,8 +136,6 @@ const init = () => {
 
     if (!validateBirth($birthInput.value)) showElement($birthError);
     else hideElement($birthError);
-
-    checkForm();
   };
 
   const clickNextButton = () => {
@@ -153,6 +150,10 @@ const init = () => {
     console.log(e.target.value);
   };
 
+  const changeForm = () => {
+    checkForm();
+  };
+
   $emailInput.addEventListener('input', changeEmailInput);
   $emailDuplicateButton.addEventListener('click', clickEmailDuplicateButton);
   $emailRemoveButton.addEventListener('click', clickEmailRemoveButton);
@@ -161,6 +162,7 @@ const init = () => {
   $birthInput.addEventListener('input', changeBirthInput);
   $nextButton.addEventListener('click', clickNextButton);
   $signupForm.addEventListener('submit', submitForm);
+  $signupForm.addEventListener('input', changeForm);
 };
 
 init();
