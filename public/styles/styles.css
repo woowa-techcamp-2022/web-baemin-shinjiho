@@ -51,13 +51,16 @@ input::placeholder {
   border-bottom: 1px solid var(--color-gray300);
 }
 
+button {
+  border: none;
+}
+
 .button {
   cursor: pointer;
 
   padding: 14px 0;
   width: 100%;
 
-  border: none;
   border-radius: 4px;
 
   font-weight: 500;

@@ -1,5 +1,7 @@
 extends ../../layout/layout.pug
 
+include ../../components/common/button
+
 block head
   link(rel='stylesheet', href='/styles/signup-phone.css')
 
@@ -11,3 +13,25 @@ block next-page
   p.signup-phone-next-page 다음
 
 block content
+  .signup-phone-wrapper
+    form#signup-phone-form.signup-phone-form
+      .signup-input-wrapper
+        label#signup-phone-label.signup-phone-label(for='signup-phone') 휴대전화
+        input#signup-phone-input.signup-phone-input.input-underline(
+          type='text',
+          placeholder='전화번호를 입력해주세요.',
+          title='010-1234-5678',
+          pattern='01[0-9]{1}-[0-9]{4}-[0-9]{4}',
+          maxlength='13',
+          required
+        )
+        button#signup-phone-input-remover.signup-phone-input-remover.hide(type='button')
+          img(src='/assets/icons/close-circle.png', alt='번호 지우기')
+        #signup-phone-verified-check.signup-phone-verified-check
+
+      +button("인증번호 받기","#ffffff", "#000000", "#bbbbbb")#signup-phone-validate-button.signup-phone-validate-button(
+        type='submit'
+      )
+
+block script
+  script(src='/js/signup-phone.js')

@@ -1,7 +1,74 @@
 .signup-phone-next-page {
+  cursor: default;
   color: var(--color-gray300);
 }
 
 .signup-phone-next-page.active {
+  cursor: pointer;
   color: var(--color-black);
+}
+
+.signup-phone-wrapper {
+  margin-top: 40px;
+  padding: 0 18px;
+}
+
+.signup-phone-input {
+  width: 100%;
+}
+
+.signup-phone-label {
+  font-size: 14px;
+}
+
+.signup-phone-label.verified {
+  color: var(--color-gray300);
+}
+
+.signup-phone-validate-button {
+  margin-top: 40px;
+}
+
+.signup-phone-validate-button.verified {
+  display: none;
+}
+
+.signup-input-wrapper {
+  position: relative;
+}
+
+.signup-phone-verified-check {
+  position: absolute;
+  bottom: 10px;
+  right: 4px;
+
+  width: 16px;
+  height: 16px;
+
+  background: url('/assets/icons/check-inactive.png');
+  background-size: cover;
+}
+
+.signup-phone-verified-check.verified {
+  background-image: url('/assets/icons/check-active.png');
+  background-size: cover;
+}
+
+.signup-phone-input-remover {
+  position: absolute;
+  bottom: 10px;
+  right: 30px;
+
+  background: transparent;
+  width: 14px;
+  height: 14px;
+}
+
+.signup-phone-input-remover.hide {
+  display: none;
+}
+
+.signup-phone-input-remover img {
+  width: 14px;
+  height: 14px;
 }
