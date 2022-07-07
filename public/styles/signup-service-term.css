@@ -1,9 +1,16 @@
 .service-term-wrapper {
-  margin-top: 40px;
   padding: 0 18px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding-bottom: 40px;
 }
 
 .service-term-title {
+  margin-top: 140px;
   margin-bottom: 40px;
   font-size: 18px;
   font-weight: 700;
@@ -19,7 +26,6 @@
 }
 
 .service-term-next-button {
-  margin-top: 240px;
   cursor: default;
 }
 

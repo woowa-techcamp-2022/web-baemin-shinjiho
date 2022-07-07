@@ -1,0 +1,55 @@
+extends ../../layout/layout.pug
+
+include ../../components/common/button
+
+block head
+  link(rel='stylesheet', href='/styles/signup-detail.css')
+
+block back-page
+  a(href='/signup/phone')
+    img(src='/assets/icons/arrow-left.png', alt='뒤로가기')
+
+block next-page
+  p#signup-detail-next-page.signup-detail-next-page 완료
+
+block content
+  .signup-detail-wrapper
+    form#signup-email-form.signup-email-form
+      label.signup-detail-label(for='signup-email') 이메일
+      .signup-email-input-wrapper
+        input.signup-detail-input.input-underline(type='text', placeholder='ex) crong@codesquad.kr', required)
+        button#signup-email-input-remover.signup-detail-input-remover.hide(type='button')
+          img(src='/assets/icons/close-circle.png', alt='이메일 지우기')
+
+        +button("중복확인","#ffffff", "#000000", "#bbbbbb").singup-email-duplicate-button
+
+    .signup-detail-info-wrapper
+      div
+        label.signup-detail-label(for='signup-nickname') 닉네임
+        .signup-input-wrapper
+          input#signup-nickname-input.signup-detail-input.input-underline.w-full(
+            type='text',
+            placeholder='닉네임을 입력해주세요.',
+            required
+          )
+          .signup-detail-input-check
+      div
+        label.signup-detail-label(for='signup-password') 비밀번호
+        .signup-input-wrapper
+          input#signup-password-input.signup-detail-input.input-underline.w-full(
+            type='text',
+            placeholder='10자 이상 대문자, 소문자, 숫자, 특수문자 중 2종류 조합',
+            required
+          )
+          .signup-detail-input-check
+      div
+        label.signup-detail-label(for='signup-password') 생년월일
+        .signup-input-wrapper
+          input#signup-password-input.signup-detail-input.input-underline.w-full(
+            type='text',
+            placeholder='예) 2000.01.01',
+            required
+          )
+          .signup-detail-input-check
+
+block script
