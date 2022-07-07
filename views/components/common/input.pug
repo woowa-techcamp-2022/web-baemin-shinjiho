@@ -1,0 +1,14 @@
+mixin input(label, name, type="text", placeholder, errorMessage, hasCheck, hasRemove, maxLength)
+  .input-group&attributes(attributes)
+    label.label= label
+    .detail-input-wrapper
+      .input-wrapper
+        input.input.input-underline(type=type, name=name, placeholder=placeholder, required)
+        if hasCheck
+          .input-check
+        p.error-message.hide= errorMessage
+        if hasRemove
+          button.input-remover.input-remover-button.hide(type='button')
+            img(src='/assets/icons/close-circle.png', alt='지우기')
+      if block
+        block

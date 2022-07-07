@@ -1,0 +1,46 @@
+input[type='checkbox'] {
+  position: absolute;
+  left: -9999px;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: -1;
+  appearance: none;
+}
+
+.check-all-agree-label {
+  font-weight: 700;
+}
+
+input[type='checkbox'] + label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 14px;
+}
+
+input[type='checkbox'] + label i {
+  display: inline-block;
+
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+
+  background: url('/assets/icons/checkbox-inactive.png');
+  background-size: cover;
+}
+
+input[type='checkbox']:checked + label i {
+  background: url('/assets/icons/checkbox-active.png');
+  background-size: cover;
+}
+
+.checkbox-wrapper {
+  margin-bottom: 20px;
+}
+
+.checkbox-left {
+  display: flex;
+  align-items: center;
+}

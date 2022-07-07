@@ -1,0 +1,51 @@
+.label {
+  font-size: 14px;
+}
+
+.input-group {
+  margin-bottom: 50px;
+}
+
+.detail-input-wrapper {
+  display: flex;
+
+  gap: 8px;
+}
+
+.input-wrapper {
+  position: relative;
+
+  flex: 1;
+  display: flex;
+}
+
+.input-wrapper .input {
+  width: 100%;
+}
+
+.input:disabled {
+  color: var(--color-gray300);
+}
+
+.input-check {
+  position: absolute;
+  bottom: 10px;
+  right: 4px;
+
+  width: 16px;
+  height: 16px;
+
+  background: url('/assets/icons/check-inactive.png');
+  background-size: cover;
+}
+
+.input.verified + .input-check {
+  background: url('/assets/icons/check-active.png');
+  background-size: cover;
+}
+
+.input-remover-button {
+  position: absolute;
+  right: 30px;
+  bottom: 10px;
+}

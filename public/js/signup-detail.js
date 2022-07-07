@@ -2,20 +2,20 @@ import { PASSWORD_MIN_LENGTH } from './constant.js';
 
 const init = () => {
   const $signupForm = document.querySelector('.singup-detail-form');
-  const $emailGroup = document.querySelector('.singup-detail-group.email');
-  const $emailInput = document.querySelector('.singup-detail-group.email .signup-input');
-  const $emailError = document.querySelector('.singup-detail-group.email p.error-message');
-  const $emailRemoveButton = document.querySelector('.signup-detail-input-remover');
+  const $emailGroup = document.querySelector('.input-group.email');
+  const $emailInput = document.querySelector('.input-group.email .input');
+  const $emailError = document.querySelector('.input-group.email p.error-message');
+  const $emailRemoveButton = document.querySelector('.input-remover');
   const $emailDuplicateButton = document.querySelector('.singup-email-duplicate-button');
 
-  const $nicknameInput = document.querySelector('.singup-detail-group.nickname .signup-input');
-  const $nicknameError = document.querySelector('.singup-detail-group.nickname p.error-message');
+  const $nicknameInput = document.querySelector('.input-group.nickname .input');
+  const $nicknameError = document.querySelector('.input-group.nickname p.error-message');
 
-  const $passwordInput = document.querySelector('.singup-detail-group.password .signup-input');
-  const $passwordError = document.querySelector('.singup-detail-group.password p.error-message');
+  const $passwordInput = document.querySelector('.input-group.password .input');
+  const $passwordError = document.querySelector('.input-group.password p.error-message');
 
-  const $birthInput = document.querySelector('.singup-detail-group.birth .signup-input');
-  const $birthError = document.querySelector('.singup-detail-group.birth p.error-message');
+  const $birthInput = document.querySelector('.input-group.birth .input');
+  const $birthError = document.querySelector('.input-group.birth p.error-message');
 
   const $nextButton = document.querySelector('#signup-detail-next-page');
 

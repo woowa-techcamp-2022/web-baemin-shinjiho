@@ -1,16 +1,17 @@
 import { SECOND_MILLISECOND, PHONE_NUMBER_LENGTH, VERIFIED_CODE_LENGTH } from './constant.js';
 
 const init = () => {
-  const $phoneForm = document.getElementById('signup-phone-form');
-  const $phoneLabel = document.getElementById('signup-phone-label');
-  const $phoneInput = document.getElementById('signup-phone-input');
-  const $validateButton = document.getElementById('signup-phone-validate-button');
-  const $phoneInputRemoveButton = document.getElementById('signup-phone-input-remover');
-  const $phoneValidateCheck = document.getElementById('signup-phone-verified-check');
-  const $verifiedCodeForm = document.getElementById('signup-phone-verified-form');
-  const $verifiedCodeInput = document.getElementById('signup-phone-verified-input');
-  const $verifiedCodeReload = document.getElementById('signup-phone-reload-code');
-  const $nextPageButton = document.getElementById('signup-phone-next-page');
+  const $phoneForm = document.querySelector('#signup-phone-form');
+  const $phoneLabel = document.querySelector('.input-group.phone .label');
+  const $phoneInput = document.querySelector('.input-group.phone .input');
+  const $validateButton = document.querySelector('#signup-phone-validate-button');
+  const $phoneInputRemoveButton = document.querySelector('.input-group.phone .input-remover');
+  const $phoneValidateCheck = document.querySelector('.input-group.phone .input-check');
+
+  const $verifiedCodeForm = document.querySelector('#signup-phone-verified-form');
+  const $verifiedCodeInput = document.querySelector('.input-group.verified-code .input');
+  const $verifiedCodeReload = document.querySelector('#signup-phone-reload-code');
+  const $nextPageButton = document.querySelector('#signup-phone-next-page');
 
   const generateRandomVerifiedCode = () => {
     const randomCode = new Array(4)
@@ -62,6 +63,8 @@ const init = () => {
 
   const submitPhoneForm = (e) => {
     e.preventDefault();
+
+    if (!validatePhoneNumber($phoneInput.value)) return;
 
     $phoneLabel.classList.add('verified');
     $validateButton.classList.add('hide');

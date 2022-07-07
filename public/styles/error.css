@@ -1,3 +1,9 @@
 .error-image {
   width: 100%;
 }
+
+.error-message {
+  font-size: 10px;
+
+  color: var(--color-red);
+}
