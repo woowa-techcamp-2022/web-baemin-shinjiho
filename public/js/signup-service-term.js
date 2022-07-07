@@ -11,6 +11,13 @@ const init = () => {
     $nextButton.classList.remove('active');
   };
 
+  const clickNextButton = () => {
+    const isActive = $nextButton.classList.contains('active');
+    if (!isActive) return;
+
+    location.href = '/signup/phone';
+  };
+
   const checkCheckBoxList = () => {
     const checkedCheckboxList = $checkboxList.querySelectorAll('input[type="checkbox"]:checked');
     if (checkedCheckboxList.length !== $checkboxList.length) $checkAllAgree.checked = false;
@@ -49,6 +56,7 @@ const init = () => {
 
   $checkAllAgree.addEventListener('change', changeAllCheckbox);
   $checkboxList.addEventListener('change', toggleCheckBox);
+  $nextButton.addEventListener('click', clickNextButton);
 };
 
 init();
