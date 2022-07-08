@@ -13,9 +13,9 @@ block content
   .signin-wrapper
     form#signin-form.signin-form(action='/user/signin', method='POST')
       input#signin-input-id.input-underline(type='text', name='email', placeholder='아이디 또는 이메일')
-      span#signin-id-error.error-message
+      span#signin-id-error.error-message.hide 아이디 또는 이메일을 입력해주세요
       input#signin-input-password.input-underline(type='password', name='password', placeholder='비밀번호')
-      span#signin-password-error.error-message
+      span#signin-password-error.error-message.hide 비밀번호를 입력해주세요
       span.signin-server-error.error-message #{ error }
       +button("로그인", "#2ac1bc", "#ffffff")
       .signin-helper
@@ -31,4 +31,4 @@ block content
         a(href='/signup/term') 회원가입
 
 block script
-  script(src='/js/signin.js') 
+  script(src='/js/signin.js', type='module') 
