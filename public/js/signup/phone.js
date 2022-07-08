@@ -9,6 +9,8 @@ import {
   toggleRemoveButton,
 } from '../util.js';
 
+import { validatePhoneNumber } from '../validate.js';
+
 const $phoneForm = document.querySelector('#signup-phone-form');
 const $phoneLabel = document.querySelector('.input-group.phone .label');
 const $phoneInput = document.querySelector('.input-group.phone .input');
@@ -27,12 +29,6 @@ const generateRandomVerifiedCode = () => {
     .join('');
 
   return randomCode;
-};
-
-const validatePhoneNumber = (value) => {
-  const phoneRegExp = /01[0-9]{1}-[0-9]{4}-[0-9]{4}/;
-
-  return phoneRegExp.test(value);
 };
 
 const removeVerifiedCode = () => {

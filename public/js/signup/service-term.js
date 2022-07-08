@@ -48,11 +48,11 @@ const changeAllCheckbox = () => {
   checkRequiredCheckbox();
 };
 
-const toggleCheckBox = () => {
+const changeCheckBox = () => {
   checkCheckBoxList();
   checkRequiredCheckbox();
 };
 
 $checkAllAgree.addEventListener('change', changeAllCheckbox);
-$checkboxList.addEventListener('change', toggleCheckBox);
+$checkboxList.addEventListener('change', changeCheckBox);
 $nextButton.addEventListener('click', clickNextButton);
