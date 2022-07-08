@@ -15,12 +15,12 @@ block next-page
 
 block content
   .signup-detail-wrapper
-    form.singup-detail-form(action='/user/signup', method='POST')
+    form.signup-detail-form(action='/user/signup', method='POST')
       +input("이메일", 'email', "email" , "ex) crong@woowahan.com", "이메일 형식을 지켜주세요", true, true).email
         +button('중복확인', "#ffffff", "#bbbbbb", "#bbbbbb").singup-email-duplicate-button(type='button')
       +input("닉네임", 'nickname', "text", "닉네임을 입력해주세요", "닉네임을 입력해주세요", true).nickname
       +input("비밀번호", 'password', "password", "10자 이상 영어 대문자, 소문자, 숫자 특수문자 2종류", "10자 이상 영어 대문자, 소문자, 숫자 특수문자 중 2종류를 조합해야 합니다.", true).password
-      +input("생년월일", 'nickname', "text" , "ex) 2000.01.01", "생년월일을 제대로 입력해주세요.", true, false, 10).birth
+      +input("생년월일", 'birth', "text" , "ex) 2000.01.01", "생년월일을 제대로 입력해주세요.", true, false, 10).birth
 
 block script
-  script(src='/js/signup-detail.js', type='module')
+  script(src='/js/signup/detail.js', type='module')
