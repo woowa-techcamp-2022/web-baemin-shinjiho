@@ -1,8 +1,10 @@
+import { showElement, hideElement } from './util.js';
+
 const $inputId = document.getElementById('signin-input-id');
 const $inputPassword = document.getElementById('signin-input-password');
 const $signinForm = document.getElementById('signin-form');
-const $spanErrorId = document.getElementById('signin-id-error');
-const $spanErrorPassword = document.getElementById('signin-password-error');
+const $idError = document.getElementById('signin-id-error');
+const $passwordError = document.getElementById('signin-password-error');
 
 const submitLogin = (e) => {
   const idValue = $inputId.value;
@@ -10,12 +12,12 @@ const submitLogin = (e) => {
 
   if (!idValue) {
     e.preventDefault();
-    $spanErrorId.innerText = '아이디 또는 이메일을 입력해주세요';
+    showElement($idError);
     return;
   }
   if (!passwordValue) {
     e.preventDefault();
-    $spanErrorPassword.innerText = '비밀번호를 입력해주세요';
+    showElement($passwordError);
     return;
   }
 };
@@ -24,7 +26,7 @@ const changeInputId = () => {
   const idValue = $inputId.value;
 
   if (idValue) {
-    $spanErrorId.innerText = '';
+    hideElement($idError);
   }
 };
 
@@ -32,7 +34,7 @@ const changeInputPassword = () => {
   const passwordValue = $inputPassword.value;
 
   if (passwordValue) {
-    $spanErrorPassword.innerText = '';
+    hideElement($passwordError);
   }
 };
 

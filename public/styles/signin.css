@@ -72,3 +72,8 @@
   cursor: pointer;
   color: var(--color-primary);
 }
+
+.signin-logo {
+  width: 16px;
+  height: 16px;
+}
