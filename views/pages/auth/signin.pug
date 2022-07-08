@@ -24,9 +24,15 @@ block content
         span 비밀번호 찾기
 
     .signin-oauth-wrapper
-      button.button.signin-ouath-button 페이스북으로 로그인
-      button.button.signin-ouath-button 네이버로 로그인
-      button.button.signin-ouath-button Apple로 로그인
+      button.button.signin-ouath-button 
+        img.signin-logo(src='/assets/icons/logo-facebook.png')
+        | 페이스북으로 로그인
+      button.button.signin-ouath-button 
+        img.signin-logo(src='/assets/icons/logo-naver.png')
+        | 네이버로 로그인
+      button.button.signin-ouath-button 
+        img.signin-logo(src='/assets/icons/logo-apple.png')
+        | Apple로 로그인
       span.signin-first-txt 혹시, 배달의 민족이 처음이신가요?
         a(href='/signup/term') 회원가입
 
