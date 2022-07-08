@@ -145,11 +145,6 @@ const init = () => {
     $signupForm.submit();
   };
 
-  const submitForm = (e) => {
-    e.preventDefault();
-    console.log(e.target.value);
-  };
-
   const changeForm = () => {
     checkForm();
   };
@@ -161,7 +156,6 @@ const init = () => {
   $passwordInput.addEventListener('input', changePasswordInput);
   $birthInput.addEventListener('input', changeBirthInput);
   $nextButton.addEventListener('click', clickNextButton);
-  $signupForm.addEventListener('submit', submitForm);
   $signupForm.addEventListener('input', changeForm);
 };
 
