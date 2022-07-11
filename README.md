@@ -58,7 +58,7 @@ Pug, JS, Express.js
 #### 회원가입 - 이메일, 세부정보 입력
 
 <div style="display:flex; align-items:center;">
-<img height="400" src="https://user-images.githubusercontent.com/60956392/178177068-fadaf5f7-a276-44c1-825d-3c41eacc9801.png">
 <img height="400" src="https://user-images.githubusercontent.com/60956392/178177061-f9a958b6-9d5b-4f43-b811-a3aece98210e.png">
+<img height="400" src="https://user-images.githubusercontent.com/60956392/178177068-fadaf5f7-a276-44c1-825d-3c41eacc9801.png">
 <img height="400" src="https://user-images.githubusercontent.com/60956392/178175959-da6f9c90-85b1-4a37-bd17-612ffbf200cb.png">
 </div>
