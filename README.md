@@ -62,3 +62,9 @@ Pug, JS, Express.js
 <img height="400" src="https://user-images.githubusercontent.com/60956392/178177068-fadaf5f7-a276-44c1-825d-3c41eacc9801.png">
 <img height="400" src="https://user-images.githubusercontent.com/60956392/178175959-da6f9c90-85b1-4a37-bd17-612ffbf200cb.png">
 </div>
+
+#### 404
+
+<div style="display:flex; align-items:center;">
+<img height="400" src="https://user-images.githubusercontent.com/60956392/178180067-2063be16-86dd-479d-97a3-815ae08ce3a8.png">
+</div>
